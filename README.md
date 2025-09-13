@@ -1,14 +1,14 @@
 # Gemini Chat App
 
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **React 19** - Frontend framework
 - **Vite** - Build tool and dev server
 - **Google Gemini API** - AI chat functionality
 - **CSS3** - Styling and animations
 
-## 🚀 Quick Start
+## Quick Start
 
 1. **Clone the repository**
    ```bash
@@ -35,7 +35,7 @@
 5. **Open your browser**
    Navigate to `http://localhost:5173`
 
-## 📝 Available Scripts
+## Available Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
@@ -48,7 +48,7 @@ The app requires a Google Gemini API key. Get yours from the [Google AI Studio](
 
 ---
 
-## 🧮 Data Structures & Algorithms
+## Data Structures & Algorithms
 
 ### Linked List Cycle Detection
 
@@ -100,12 +100,7 @@ var detectCycle = function(head) {
 **Time Complexity**: O(n) - Linear time
 **Space Complexity**: O(1) - Constant space
 
-**Why it works**: 
-- When the fast pointer meets the slow pointer, the slow pointer has traveled distance `d`
-- The fast pointer has traveled distance `2d`
-- The difference `d` is exactly the length of the cycle
-- Moving both pointers at the same speed from head and meeting point will converge at the cycle start
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
