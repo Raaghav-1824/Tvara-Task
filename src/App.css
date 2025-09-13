@@ -68,6 +68,7 @@ h1 {
   outline: none;
   transition: all 0.3s ease;
   background: #f8f9fa;
+  color: #333;
 }
 
 .text-input:focus {
