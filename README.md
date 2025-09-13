@@ -1,12 +1,111 @@
-# React + Vite
+# Gemini Chat App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## 🛠️ Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19** - Frontend framework
+- **Vite** - Build tool and dev server
+- **Google Gemini API** - AI chat functionality
+- **CSS3** - Styling and animations
 
-## Expanding the ESLint configuration
+## 🚀 Quick Start
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd my-app
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   Create a `.env` file in the root directory:
+   ```env
+   VITE_GEMINI_API_KEY=your_gemini_api_key_here
+   ```
+
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   Navigate to `http://localhost:5173`
+
+## 📝 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## 🔧 Configuration
+
+The app requires a Google Gemini API key. Get yours from the [Google AI Studio](https://makersuite.google.com/app/apikey) and add it to your `.env` file.
+
+---
+
+## 🧮 Data Structures & Algorithms
+
+### Linked List Cycle Detection
+
+**Problem**: Detect if a linked list has a cycle and find the starting node of the cycle.
+
+**Solution Approach**:
+
+```javascript
+var detectCycle = function(head) {
+  if (!head || !head.next) return null;
+
+  let slow = head;
+  let fast = head;
+
+  // 1) Detect if a cycle exists
+  while (fast !== null && fast.next !== null) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if (slow === fast) {
+      // 2) Found meeting point inside cycle
+      slow = head;
+      while (slow !== fast) {
+        slow = slow.next;
+        fast = fast.next;
+      }
+      return slow; // start of cycle
+    }
+  }
+
+  // No cycle
+  return null;
+};
+```
+
+#### Algorithm Explanation:
+
+**Floyd's Cycle Detection Algorithm (Tortoise and Hare)**
+
+1. **Phase 1 - Cycle Detection**:
+   - Use two pointers: `slow` (moves 1 step) and `fast` (moves 2 steps)
+   - If there's a cycle, the fast pointer will eventually meet the slow pointer
+   - If no cycle exists, the fast pointer will reach the end (null)
+
+2. **Phase 2 - Find Cycle Start**:
+   - When pointers meet, reset `slow` to head
+   - Move both pointers one step at a time
+   - The point where they meet again is the start of the cycle
+
+**Time Complexity**: O(n) - Linear time
+**Space Complexity**: O(1) - Constant space
+
+**Why it works**: 
+- When the fast pointer meets the slow pointer, the slow pointer has traveled distance `d`
+- The fast pointer has traveled distance `2d`
+- The difference `d` is exactly the length of the cycle
+- Moving both pointers at the same speed from head and meeting point will converge at the cycle start
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
